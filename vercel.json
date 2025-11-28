@@ -3,6 +3,5 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nuxtjs",
-  "outputDirectory": ".output/public",
-  "nodeVersion": "18.x"
+  "outputDirectory": ".output/public"
 }

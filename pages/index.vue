@@ -1,24 +1,26 @@
 <template>
   <div>
     <!-- Language Switcher -->
-    <div class="language-switcher">
+    <div class="lang-switcher">
       <button
         :class="['lang-btn', { active: currentLanguage === 'en' }]"
         @click="currentLanguage = 'en'"
       >
-        English
+        EN
       </button>
       <button
         :class="['lang-btn', { active: currentLanguage === 'nl' }]"
         @click="currentLanguage = 'nl'"
       >
-        Nederlands
+        NL
       </button>
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-      <div class="warp-pattern"></div>
+      <div class="warp-bg">
+        <div class="speed-streaks"></div>
+      </div>
       <div class="container">
         <div class="hero-content">
           <div class="tagline">{{ copy.hero.tagline }}</div>
@@ -31,18 +33,19 @@
           <p class="microline">{{ copy.hero.microline }}</p>
         </div>
       </div>
+      <!-- Background logo watermark -->
+      <img src="~/assets/images/BOM.png" alt="" class="hero-logo-bg" aria-hidden="true" />
     </section>
+
+    <div class="pixel-divider"></div>
 
     <!-- Why Video Section -->
     <section id="why-video">
-      <div class="warp-pattern"></div>
       <div class="container">
-        <div class="section-header text-center">
-          <h2>{{ copy.whyVideo.headline }}</h2>
-        </div>
+        <h2 class="text-center mb-6">{{ copy.whyVideo.headline }}</h2>
         <div class="stats-grid">
           <div class="stat-card">
-            <div class="stat-number">3×</div>
+            <div class="stat-number">3x</div>
             <p>{{ copy.whyVideo.stat1 }}</p>
           </div>
           <div class="stat-card">
@@ -58,44 +61,42 @@
             <p>{{ copy.whyVideo.stat4 }}</p>
           </div>
         </div>
-        <div class="bottom-line">
-          <p>{{ copy.whyVideo.bottomLine }}</p>
-        </div>
+        <p class="bottom-line">{{ copy.whyVideo.bottomLine }}</p>
       </div>
     </section>
 
-    <!-- Quality Section -->
-    <section id="quality">
-      <div class="warp-pattern"></div>
-      <div class="container">
-        <div class="section-header">
-          <h2>{{ copy.quality.headline }}</h2>
-          <p class="quality-description">{{ copy.quality.description }}</p>
-        </div>
+    <div class="pixel-divider"></div>
 
-        <div class="guarantees-grid">
-          <div class="guarantee-card" v-for="(guarantee, index) in copy.quality.guarantees" :key="index">
-            <div class="guarantee-icon">✓</div>
-            <h3>{{ guarantee }}</h3>
+    <!-- Quality Section (Two-Column) -->
+    <section id="quality">
+      <div class="container">
+        <div class="quality-grid">
+          <div class="quality-copy">
+            <h2>{{ copy.quality.headline }}</h2>
+            <p>{{ copy.quality.description }}</p>
+            <p class="microline mt-4">{{ copy.quality.microline }}</p>
+          </div>
+          <div class="quality-checklist">
+            <div class="check-item" v-for="(guarantee, index) in copy.quality.guarantees" :key="index">
+              <span class="check-icon">&#10003;</span>
+              <span>{{ guarantee }}</span>
+            </div>
           </div>
         </div>
-
-        <p class="quality-microline">{{ copy.quality.microline }}</p>
       </div>
     </section>
+
+    <div class="pixel-divider"></div>
 
     <!-- How It Works Section -->
     <section id="how-it-works">
-      <div class="warp-pattern"></div>
       <div class="container">
-        <div class="section-header text-center">
-          <h2>{{ copy.howItWorks.headline }}</h2>
-          <p>{{ copy.howItWorks.subhead }}</p>
-        </div>
+        <h2 class="text-center mb-4">{{ copy.howItWorks.headline }}</h2>
+        <p class="text-center mb-6 subhead">{{ copy.howItWorks.subhead }}</p>
 
-        <div class="pipeline-steps">
+        <div class="pipeline-grid">
           <div class="pipeline-step" v-for="(step, index) in copy.howItWorks.steps" :key="index">
-            <div class="step-number">{{ index + 1 }}</div>
+            <div class="step-number">{{ String(index + 1).padStart(2, '0') }}</div>
             <h3>{{ step.title }}</h3>
             <p>{{ step.description }}</p>
           </div>
@@ -103,14 +104,12 @@
       </div>
     </section>
 
+    <div class="pixel-divider"></div>
+
     <!-- Video Styles Section -->
     <section id="video-styles">
-      <div class="warp-pattern"></div>
       <div class="container">
-        <div class="section-header text-center">
-          <h2>{{ copy.styles.headline }}</h2>
-        </div>
-
+        <h2 class="text-center mb-6">{{ copy.styles.headline }}</h2>
         <div class="styles-grid">
           <div class="style-card card" v-for="(style, index) in copy.styles.items" :key="index">
             <h3>{{ style.title }}</h3>
@@ -120,14 +119,12 @@
       </div>
     </section>
 
+    <div class="pixel-divider"></div>
+
     <!-- Durations Section -->
     <section id="durations">
-      <div class="warp-pattern"></div>
       <div class="container">
-        <div class="section-header text-center">
-          <h2>{{ copy.durations.headline }}</h2>
-        </div>
-
+        <h2 class="text-center mb-6">{{ copy.durations.headline }}</h2>
         <div class="durations-grid">
           <div class="duration-card card" v-for="(duration, index) in copy.durations.items" :key="index">
             <h3>{{ duration.title }}</h3>
@@ -137,14 +134,12 @@
       </div>
     </section>
 
+    <div class="pixel-divider"></div>
+
     <!-- Pricing Section -->
     <section id="pricing">
-      <div class="warp-pattern"></div>
       <div class="container">
-        <div class="section-header text-center">
-          <h2>{{ copy.pricing.headline }}</h2>
-        </div>
-
+        <h2 class="text-center mb-6">{{ copy.pricing.headline }}</h2>
         <div class="pricing-grid">
           <div
             class="pricing-card card"
@@ -155,7 +150,7 @@
             <div v-if="index === 1" class="featured-badge">{{ copy.pricing.mostPopular }}</div>
             <h3>{{ plan.title }}</h3>
             <div class="price">{{ plan.price }}</div>
-            <p class="price-label">{{ plan.period }}</p>
+            <p class="price-period">{{ plan.period }}</p>
             <p class="price-description">{{ plan.description }}</p>
             <button class="btn btn-primary btn-full">{{ copy.pricing.cta }}</button>
           </div>
@@ -163,32 +158,42 @@
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq">
-      <div class="warp-pattern"></div>
-      <div class="container">
-        <div class="section-header text-center">
-          <h2>{{ copy.faq.headline }}</h2>
-        </div>
+    <div class="pixel-divider"></div>
 
-        <div class="faq-grid">
-          <div class="faq-item" v-for="(item, index) in copy.faq.items" :key="index">
-            <h3>{{ item.question }}</h3>
-            <p>{{ item.answer }}</p>
+    <!-- FAQ Section (Accordion) -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="text-center mb-6">{{ copy.faq.headline }}</h2>
+        <div class="faq-list">
+          <div
+            class="faq-item"
+            :class="{ active: activeFaq === index }"
+            v-for="(item, index) in copy.faq.items"
+            :key="index"
+          >
+            <button class="faq-question" @click="toggleFaq(index)">
+              <span>{{ item.question }}</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>{{ item.answer }}</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <div class="pixel-divider"></div>
+
     <!-- Final CTA Section -->
-    <section id="final-cta" class="final-cta-section">
-      <div class="warp-pattern"></div>
-      <div class="container">
-        <div class="final-cta-content">
-          <h2>{{ copy.finalCta.headline }}</h2>
-          <p>{{ copy.finalCta.subhead }}</p>
-          <button class="btn btn-primary btn-large">{{ copy.finalCta.cta }}</button>
-        </div>
+    <section id="final-cta" class="final-cta">
+      <div class="warp-bg">
+        <div class="speed-streaks"></div>
+      </div>
+      <div class="container relative z-1">
+        <h2>{{ copy.finalCta.headline }}</h2>
+        <p>{{ copy.finalCta.subhead }}</p>
+        <button class="btn btn-primary btn-large">{{ copy.finalCta.cta }}</button>
       </div>
     </section>
   </div>
@@ -198,6 +203,11 @@
 import { ref, computed } from 'vue'
 
 const currentLanguage = ref<'en' | 'nl'>('en')
+const activeFaq = ref<number | null>(null)
+
+const toggleFaq = (index: number) => {
+  activeFaq.value = activeFaq.value === index ? null : index
+}
 
 const copyData = {
   en: {
@@ -219,15 +229,16 @@ const copyData = {
       bottomLine: 'Video is the fastest way to get attention — and turn that attention into revenue.',
     },
     quality: {
-      headline: 'Built for speed. Reviewed like your sales depend on it.',
+      headline: 'Automation for speed. Craftsmanship for results.',
       description:
-        'AI agents handle the fast work — script drafts, timing, visuals — while human editors refine everything to make sure your ad sells.',
+        'AI agents generate drafts, but real editors fix phrasing, pacing, tone, visuals and timing — so your video actually sells.',
       guarantees: [
-        'Clear messaging',
-        'No awkward AI phrasing',
         'No uncanny visuals',
-        'Strong hooks + pacing',
-        'Consistent, polished brand tone',
+        'No awkward phrasing',
+        'No weird pacing',
+        'Consistent brand tone',
+        'Performance-focused hooks',
+        'Sales-ready delivery',
       ],
       microline: 'The standard isn\'t "looks good." The standard is "drives results."',
     },
@@ -245,7 +256,7 @@ const copyData = {
         },
         {
           title: 'Upload brand assets (optional)',
-          description: 'Logos, colours, product images… or clean defaults.',
+          description: 'Logos, colours, product images... or clean defaults.',
         },
         {
           title: 'AI generates a sales-focused script',
@@ -269,36 +280,36 @@ const copyData = {
       headline: 'Choose the style that sells your product best.',
       items: [
         {
-          title: 'Presenter to Camera',
-          description: 'trust-driven messaging',
+          title: 'Talking Head',
+          description: 'Trust-driven messaging',
         },
         {
           title: 'Product Showcase',
-          description: 'fast, bold, perfect for e-commerce',
+          description: 'Fast, bold, perfect for e-commerce',
         },
         {
           title: 'Animated Explainer',
-          description: 'clarity for apps & tools',
+          description: 'Clarity for apps & tools',
         },
         {
           title: 'Voiceover + B-roll',
-          description: 'professional and credible',
+          description: 'Professional and credible',
         },
         {
           title: 'Hybrid',
-          description: 'mix formats for maximum performance',
+          description: 'Mix formats for maximum performance',
         },
       ],
     },
     durations: {
-      headline: '⏱ Durations',
+      headline: 'Pick your duration',
       items: [
         {
           title: '6s Bumper',
           description: 'Perfect for fast awareness + retargeting.',
         },
         {
-          title: '15s Standard (Recommended)',
+          title: '15s Standard',
           description: 'Ideal for converting cold-to-warm viewers into buyers.',
         },
         {
@@ -379,15 +390,16 @@ const copyData = {
         'Video is de snelste manier om aandacht te krijgen — en die aandacht om te zetten in omzet.',
     },
     quality: {
-      headline: 'Gebouwd voor snelheid. Gecontroleerd alsof je omzet ervan afhangt.',
+      headline: 'Automatisering voor snelheid. Vakmanschap voor resultaat.',
       description:
-        'AI-agents doen het snelle werk — scripts, timing, visuals — terwijl menselijke editors alles verfijnen om ervoor te zorgen dat je advertentie verkoopt.',
+        'AI-agents maken concepten, maar echte editors verbeteren tekst, timing, toon, beelden en ritme — zodat je video daadwerkelijk verkoopt.',
       guarantees: [
-        'Heldere boodschap',
-        'Geen vreemde AI-zinnen',
         'Geen onnatuurlijke beelden',
-        'Sterke hooks + tempo',
-        'Consequente, professionele merktoon',
+        'Geen vreemde zinnen',
+        'Geen rare timing',
+        'Consistente merktoon',
+        'Prestatiegerichte hooks',
+        'Verkoopklare levering',
       ],
       microline: 'De norm is niet "ziet er goed uit." De norm is "levert resultaat."',
     },
@@ -405,7 +417,7 @@ const copyData = {
         },
         {
           title: 'Upload merkmateriaal (optioneel)',
-          description: 'Logo\'s, kleuren, productfoto\'s… of wij gebruiken nette standaarden.',
+          description: 'Logo\'s, kleuren, productfoto\'s... of wij gebruiken nette standaarden.',
         },
         {
           title: 'AI maakt een verkoopgericht script',
@@ -422,7 +434,7 @@ const copyData = {
         },
         {
           title: 'Laatste menselijke kwaliteitscheck',
-          description: 'We controleren tempo, helderheid en kwaliteit vóór levering.',
+          description: 'We controleren tempo, helderheid en kwaliteit voor levering.',
         },
       ],
     },
@@ -430,36 +442,36 @@ const copyData = {
       headline: 'Kies de stijl die jouw product het beste verkoopt.',
       items: [
         {
-          title: 'Presentator op camera',
-          description: 'betrouwbaar en direct',
+          title: 'Talking Head',
+          description: 'Betrouwbaar en direct',
         },
         {
           title: 'Product Showcase',
-          description: 'snel, opvallend, ideaal voor e-commerce',
+          description: 'Snel, opvallend, ideaal voor e-commerce',
         },
         {
           title: 'Animated Explainer',
-          description: 'helder voor apps & tools',
+          description: 'Helder voor apps & tools',
         },
         {
           title: 'Voice-over + B-roll',
-          description: 'professioneel en overtuigend',
+          description: 'Professioneel en overtuigend',
         },
         {
           title: 'Hybride',
-          description: 'combineer formats voor maximale prestaties',
+          description: 'Combineer formats voor maximale prestaties',
         },
       ],
     },
     durations: {
-      headline: '⏱ Lengtes',
+      headline: 'Kies je lengte',
       items: [
         {
           title: '6s Bumper',
           description: 'Perfect voor snelle awareness + retargeting.',
         },
         {
-          title: '15s Standaard (Aanbevolen)',
+          title: '15s Standaard',
           description: 'Ideaal voor het omzetten van kijkers in klanten.',
         },
         {
@@ -538,460 +550,12 @@ useHead({
 </script>
 
 <style scoped>
-/* Language Switcher */
-.language-switcher {
-  position: fixed;
-  top: var(--space-lg);
-  right: var(--space-lg);
-  z-index: 1000;
-  display: flex;
-  gap: var(--space-sm);
-}
-
-.lang-btn {
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid var(--color-aqua-beam);
-  color: var(--color-white);
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.lang-btn:hover {
-  background: var(--color-aqua-beam);
-  color: var(--color-deep-navy);
-}
-
-.lang-btn.active {
-  background: var(--color-aqua-beam);
-  color: var(--color-deep-navy);
-}
-
-/* Hero */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--color-deep-navy) 0%, rgba(57, 77, 155, 0.1) 100%);
-}
-
-.hero-content {
-  text-align: center;
-  max-width: 800px;
-}
-
-.tagline {
-  font-family: var(--font-primary);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-aqua-beam);
-  margin-bottom: var(--space-lg);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: var(--space-lg);
-  line-height: 1.2;
-  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-aqua-beam) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-subhead {
-  font-size: 1.25rem;
-  margin-bottom: var(--space-xl);
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.8;
-}
-
-.hero-cta {
-  display: flex;
-  gap: var(--space-md);
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: var(--space-2xl);
-}
-
-.microline {
-  font-size: 0.95rem;
-  color: var(--color-aqua-beam);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-/* Section Headers */
-.section-header {
-  margin-bottom: var(--space-2xl);
-}
-
-.section-header h2 {
-  margin-bottom: var(--space-lg);
-}
-
-.section-header p {
+/* Subhead styling */
+.subhead {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.text-center {
-  text-align: center;
-}
-
-/* Stats Grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg);
-  margin-bottom: var(--space-2xl);
-}
-
-.stat-card {
-  background: rgba(125, 209, 231, 0.05);
-  border: 1px solid rgba(125, 209, 231, 0.2);
-  padding: var(--space-xl);
-  border-radius: 4px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-  border-color: var(--color-aqua-beam);
-  background-color: rgba(125, 209, 231, 0.1);
-  transform: translateY(-4px);
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-aqua-beam);
-  margin-bottom: var(--space-md);
-}
-
-.stat-card p {
-  font-size: 1rem;
-}
-
-.bottom-line {
-  text-align: center;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-}
-
-/* Quality Section */
-#quality {
-  background: linear-gradient(135deg, rgba(57, 77, 155, 0.05) 0%, transparent 100%);
-}
-
-.quality-description {
-  font-size: 1.15rem;
-  margin-bottom: var(--space-2xl);
-  line-height: 1.8;
-}
-
-.guarantees-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-lg);
-  margin-bottom: var(--space-2xl);
-}
-
-.guarantee-card {
-  display: flex;
-  gap: var(--space-md);
-  align-items: flex-start;
-  padding: var(--space-lg);
-  background: rgba(168, 216, 151, 0.05);
-  border: 1px solid rgba(168, 216, 151, 0.2);
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.guarantee-card:hover {
-  background-color: rgba(168, 216, 151, 0.1);
-  border-color: var(--color-mint-lime);
-}
-
-.guarantee-icon {
-  font-size: 1.5rem;
-  color: var(--color-mint-lime);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.guarantee-card h3 {
-  font-size: 1.1rem;
-  color: var(--color-white);
-}
-
-.quality-microline {
-  text-align: center;
-  font-size: 1rem;
-  color: var(--color-aqua-beam);
-  font-weight: 500;
-}
-
-/* Pipeline Steps */
-.pipeline-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-lg);
-}
-
-.pipeline-step {
-  background: rgba(57, 77, 155, 0.1);
-  border: 1px solid rgba(125, 209, 231, 0.2);
-  padding: var(--space-lg);
-  border-radius: 4px;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.pipeline-step:hover {
-  border-color: var(--color-electric-blue);
-  background-color: rgba(57, 77, 155, 0.15);
-  transform: translateY(-4px);
-}
-
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: var(--color-electric-blue);
-  color: var(--color-white);
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-bottom: var(--space-md);
-}
-
-.pipeline-step h3 {
-  margin-bottom: var(--space-sm);
-  font-size: 1.15rem;
-}
-
-.pipeline-step p {
-  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.75);
-}
-
-/* Styles Grid */
-.styles-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-lg);
-}
-
-.style-card {
-  text-align: center;
-}
-
-.style-card h3 {
-  margin-bottom: var(--space-md);
-}
-
-/* Durations Grid */
-.durations-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-}
-
-.duration-card {
-  text-align: center;
-}
-
-.duration-card h3 {
-  margin-bottom: var(--space-md);
-}
-
-/* Pricing */
-#pricing {
-  background: linear-gradient(135deg, rgba(57, 77, 155, 0.05) 0%, transparent 100%);
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-}
-
-.pricing-card {
-  text-align: center;
-  padding: var(--space-2xl);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.pricing-card.featured {
-  border: 2px solid var(--color-aqua-beam);
-  background: rgba(125, 209, 231, 0.08);
-  transform: scale(1.05);
-}
-
-.featured-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--color-aqua-beam);
-  color: var(--color-deep-navy);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.pricing-card h3 {
-  margin-bottom: var(--space-lg);
-  margin-top: var(--space-lg);
-  font-size: 1.5rem;
-}
-
-.price {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-aqua-beam);
-  margin-bottom: var(--space-sm);
-}
-
-.price-label {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: var(--space-lg);
-}
-
-.price-description {
-  flex-grow: 1;
-  margin-bottom: var(--space-lg);
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.btn-full {
-  width: 100%;
-}
-
-/* FAQ */
-.faq-grid {
   max-width: 600px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  background: rgba(125, 209, 231, 0.05);
-  border: 1px solid rgba(125, 209, 231, 0.2);
-  padding: var(--space-lg);
-  border-radius: 4px;
-  margin-bottom: var(--space-lg);
-}
-
-.faq-item h3 {
-  margin-bottom: var(--space-md);
-  color: var(--color-aqua-beam);
-}
-
-.faq-item p {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* Final CTA */
-.final-cta-section {
-  background: linear-gradient(135deg, var(--color-electric-blue) 0%, rgba(57, 77, 155, 0.5) 100%);
-}
-
-.final-cta-content {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.final-cta-content h2 {
-  margin-bottom: var(--space-lg);
-  font-size: 2.5rem;
-}
-
-.final-cta-content p {
-  margin-bottom: var(--space-xl);
-  font-size: 1.1rem;
-}
-
-.btn-large {
-  padding: var(--space-lg) 2rem;
-  font-size: 1.1rem;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .guarantees-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .styles-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pricing-card.featured {
-    transform: scale(1);
-  }
-
-  .durations-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero-subhead {
-    font-size: 1rem;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pipeline-steps {
-    grid-template-columns: 1fr;
-  }
-
-  .styles-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .final-cta-content h2 {
-    font-size: 1.75rem;
-  }
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
