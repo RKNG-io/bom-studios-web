@@ -1,0 +1,360 @@
+1. HERO SECTION (Full Width)
+
+Purpose: Immediate clarity, scroll-stopping visual, CTA above the fold.
+
+Visual Layout
+
+Dark navy background (#0F1638)
+
+Soft warp-speed streak pattern at 15–20% opacity
+
+Left-aligned text
+
+BOM logo (bomb-“O”) large but subtle
+
+Two CTAs, high contrast
+
+Small mono accent line below
+
+Copy
+
+Tagline:
+AI-accelerated. Human-crafted.
+
+Headline:
+Scroll-stopping, sales-driving video ads built to fuel your growth.
+
+Subhead:
+Turn a short brief into high-performing videos for YouTube, TikTok and Instagram — generated fast with AI, refined by human editors, and optimised to convert.
+
+Primary CTA: Create My Ad
+Secondary CTA (outline): See Examples
+
+Microline (mono):
+Fast to produce. Built to convert.
+
+2. WHY VIDEO (Stats Block)
+
+Purpose: Establish ROI and credibility fast.
+
+Layout
+
+4 stats in a grid
+
+Minimalist icons
+
+Electric blue text (#394D9B)
+
+Soft mint accent (#A8D897) for icon dots
+
+Content
+
+3× more engagement
+
+95% message retention
+
+86% higher conversion
+
+91% of brands say video delivers best ROI
+
+Bottom line:
+Video is the fastest way to turn attention into revenue.
+
+3. QUALITY SECTION
+
+Purpose: Reassurance + differentiation (AI assisted, human perfected).
+
+Layout
+
+Two-column
+
+Left: copy
+
+Right: checklist with green ticks
+
+Pixel-dotted divider line
+
+Content
+
+Headline:
+Automation for speed. Craftsmanship for results.
+
+Copy:
+AI agents generate drafts, but real editors fix phrasing, pacing, tone, visuals and timing — so your video actually sells.
+
+Checklist:
+
+No uncanny visuals
+
+No awkward phrasing
+
+No weird pacing
+
+Consistent brand tone
+
+Performance-focused hooks
+
+Sales-ready delivery
+
+4. HOW IT WORKS (7-Step Hybrid Pipeline)
+
+Purpose: Transparency + simplicity.
+
+Layout
+
+7 steps in a vertical stack on mobile, horizontal grid on desktop
+
+Simple numeric icons (01–07)
+
+Content
+
+Headline:
+From short brief to sales-ready video in seven steps.
+
+Steps:
+
+Complete a 2-minute brief
+
+Add your website URL
+
+Upload brand assets (optional)
+
+AI agents generate a draft script
+
+Human creative refinement
+
+Automated production + human oversight
+
+Final human approval + delivery
+
+5. VIDEO STYLES
+
+Purpose: Help users self-identify and feel understood.
+
+Layout
+
+Five cards, visually uniform, with subtle pixel-corner cutouts.
+
+Styles
+
+Talking Head Presenter
+
+Product Showcase
+
+Animated Explainer
+
+Voiceover + B-roll
+
+Hybrid
+
+6. DURATIONS
+
+Purpose: Keep productisation simple.
+
+Layout
+
+Three horizontal blocks.
+
+Content
+
+6s Bumper: instant brand awareness
+
+15s Standard: best for conversions
+
+30s Extended: more space to explain
+
+7. PRICING
+
+Purpose: Simple, transparent, de-risk purchase.
+
+Layout
+
+Three pricing cards with clear shadows + hover elevation.
+
+Plans
+
+Starter — €49 per ad
+Sales-ready single ads.
+
+Pro — €149/mo
+3 ads monthly + priority.
+
+Studio — €499/mo
+10 ads + creative lead.
+
+8. FAQ
+
+Accordion layout with electric blue headers.
+
+9. TERMS & REFUNDS
+
+Small print section with pixel divider.
+
+10. FINAL CTA (Full Width)
+
+Dark section with centered text.
+
+Headline:
+Ready for your next sales-driving video?
+
+CTA: Create My Ad
+
+BOM Studios — Design Guidelines (Final)
+
+(Brand system you can hand to any designer or dev)
+
+1. Colour Palette
+Core
+
+Deep Navy: #0F1638 (primary background)
+
+Electric Blue: #394D9B (headlines, icons, accents)
+
+Aqua Beam: #7DD1E7 (hover effects, micro-highlights)
+
+Mint Lime: #A8D897 (success states, ticks)
+
+Neutrals
+
+Pure White: #FFFFFF
+
+Soft Gray: #F0F2F6
+
+Usage
+
+Navy = base
+
+Electric Blue = power colour
+
+Mint = micro highlights
+
+Aqua = motion/light effects
+
+2. Typography
+Primary Font: Inter
+
+Clean, modern, SMB-friendly.
+
+Secondary Mono (micro-use only):
+
+IBM Plex Mono
+For tiny labels, footers, and light “digital craft” accents.
+
+Hierarchy
+
+H1/H2: Inter Bold
+
+H3: Inter Semibold
+
+Body: Inter Regular
+
+Microtext: IBM Plex Mono
+
+3. Layout & Grid
+
+8px base grid
+
+Generous spacing
+
+Section padding: 80px desktop, 48px mobile
+
+Keep compositions clean, centre-aligned or left-aligned only
+
+Use dotted pixel dividers between key sections
+
+4. Visual Motifs
+Warp-Speed Streaks
+
+Low opacity (10–20%)
+
+Used only in hero banner + rare section transitions
+
+Pixel Corners
+
+Applied to cards, buttons, or icons
+
+Only 1–2px corner cuts for subtlety
+
+Glows
+
+Use sparingly
+
+Aqua or blue glows for hover states only
+
+5. Buttons
+Primary Button
+
+Electric Blue background
+
+White text
+
+Slight glow on hover
+
+Pixel-corner or 1px offset shadow
+
+Secondary Button
+
+Transparent
+
+Electric Blue border
+
+Electric Blue text
+
+6. Iconography
+
+Simple geometric icons
+
+Line weight 2px
+
+Colour: Electric Blue
+
+Optionally include tiny pixel dot highlights in Mint
+
+7. Motion & Interaction
+
+Hover glows
+
+Subtle directional wipes
+
+200–300ms transitions
+
+Light ‘scanline’ hover on hero CTAs
+
+8. Photo/Video Treatment
+
+If using photography:
+
+high contrast
+
+neon rim-light
+
+dark backgrounds
+
+slight grain
+
+If using motion backgrounds:
+
+warp streaks
+
+subtle noise
+
+9. Logo Guidelines
+Shape
+
+BOM wordmark with bomb-O monogram
+
+No gradients
+
+Clean geometric bomb icon
+
+Wide kerning
+
+STUDIOS beneath in smaller uppercase, width-matched
+
+Logo Colours
+
+White on Navy
+
+Electric Blue on Navy
+
+Navy on Aqua (promo/merch)

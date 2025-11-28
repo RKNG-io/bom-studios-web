@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
+    "types": ["nuxt/config"]
+  },
+  "include": [".nuxt/nuxt.d.ts", "**/*.ts", "**/*.tsx", "**/*.vue"]
+}
